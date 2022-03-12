@@ -1,15 +1,20 @@
-<<<<<<< CodeSandbox
+const onClickAdd = () => {
+  //テキストボックスの値を取得し、初期化する。
+  const inputText = document.getElementById("add-text").value;
+  document.getElementById("add-text").value = "";
 
-=======
-import "./styles.css";
->>>>>>> GitHub
+  //div生成
+  const div = document.createElement("div");
+  div.className = "list-row";
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-  <p>修正しました</p>
-</div>
-`;
+  //pタグ生成
+  const p = document.createElement("p");
+  p.innerText = inputText;
+
+  //divタグの子要素に各要素を設定
+  div.appendChild(p);
+  //未完了リストに追加
+  document.getElementById("incomplete-list").appendChild(div);
+};
+
+document.getElementById("add-btn").addEventListener("click", onClickAdd);
